@@ -1,0 +1,78 @@
+.platform-body {
+  background-color: whitesmoke;
+  padding: 4rem;
+}
+.platform-body h1 {
+  padding: 20px;
+  font-size: 40px;
+  font-weight: bolder;
+  font-style: oblique;
+}
+.p {
+  text-align: center;
+  padding: 20px;
+}
+.platform-pic {
+  margin-left: 70px;
+}
+.platform-pic1 {
+  margin-left: 40px;
+}
+.platform-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.h2 {
+  text-align: center;
+}
+.para {
+  padding: 10px;
+}
+.platform {
+  margin-right: 10px;
+  object-fit: contain;
+
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+@media screen and (max-width: 960px) {
+  .platform-body {
+    background-color: white;
+    padding: 4rem;
+  }
+  .platform-body h1 {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: oblique;
+  }
+  .p {
+    text-align: center;
+    padding: 20px;
+  }
+  .platform-pic {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .platform-pic1 {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .platform-container {
+    display: block;
+    flex-flow: column;
+  }
+  .platform-row {
+    display: block;
+    flex-direction: column;
+  }
+  .platform {
+    margin-right: 10px;
+  }
+}

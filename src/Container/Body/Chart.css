@@ -1,0 +1,77 @@
+.chart-body {
+  background-color: white;
+  padding: 20px;
+}
+.news-headeing-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.chart-title {
+  text-align: center;
+}
+.chart-row {
+  margin-left: 100px;
+}
+.news-title {
+  padding: 1rem;
+  width: 70%;
+}
+.crypto-headeing-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.provider-container {
+  display: flex;
+  justify-content: space-between;
+}
+.provider-name {
+  margin-left: 10px;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  margin-left: 100%;
+}
+.ant-select {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum", "tnum";
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 100%;
+}
+.select-news {
+  width: 200px;
+}
+.news-card {
+  min-height: 300px !important;
+}
+.news-image-container {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.news-image-container .img {
+  width: 100px;
+  height: 100px;
+}
+.news-card p {
+  color: black;
+  margin: 10px 0px !important;
+}
