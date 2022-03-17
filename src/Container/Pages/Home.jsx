@@ -16,8 +16,9 @@ const Home = () => {
         <Main />
         <Cards />
         <Chart />
-        {/* <Api /> */}
         <Crypto />
+        {/* <Api /> */}
+
         <New />
         <Platform />
       </div>
