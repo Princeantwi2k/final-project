@@ -31,31 +31,7 @@
 .provider-name {
   margin-left: 10px;
 }
-.ant-select:not(.ant-select-customize-input) .ant-select-selector {
-  position: relative;
-  background-color: #fff;
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  margin-left: 100%;
-}
-.ant-select {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
-  font-feature-settings: "tnum", "tnum";
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  display: inline-block;
-  cursor: pointer;
-  margin-left: 100%;
-}
+
 .select-news {
   width: 200px;
 }

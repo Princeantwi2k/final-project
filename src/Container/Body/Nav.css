@@ -33,6 +33,11 @@
   display: flex;
   align-items: center;
 }
+.logo {
+  color: #fff;
+  font-style: oblique;
+  font-size: 30px;
+}
 
 .fa-money {
   margin-left: 0.5rem;
