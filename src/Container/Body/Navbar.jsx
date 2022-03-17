@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Botton from "../Bottom/Botton";
-import pic from "../../images/CK.png";
 import "./Nav.css";
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -29,20 +28,25 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <img src={pic} alt="pic" className="pic" />
+            {/* <img src={pic} alt="pic" className="pic" /> */}
+            <h4 className="logo">Realcash</h4>
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                Home
+              <Link
+                to="/exchange"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Exchange
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                to="/cryptocurrency"
+                to="/crypto"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >

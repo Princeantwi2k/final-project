@@ -13,7 +13,7 @@ const New = () => {
         <div className='chart-body'>
   <div className='news-headeing-container'>
       <Title level={2} className="news-title">Latest Crypto News</Title>
-      <Title level={3} className="show-more"><Link to="/cryptocurrency">show more</Link></Title>
+      <Title level={3} className="show-more"><Link to="/news">show more</Link></Title>
       </div>
       <News simplified />
       </div>

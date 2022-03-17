@@ -16,7 +16,7 @@ const Crypto = () => {
             Top 10 Cryptocurrency
           </Title>
           <Title level={3} className="show-more">
-            <Link to="/cryptocurrency">show more</Link>
+            <Link to="/crypto">show more</Link>
           </Title>
         </div>
         <Cryptocurrencies simplified />

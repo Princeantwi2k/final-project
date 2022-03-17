@@ -30,7 +30,7 @@ const Api = () => {
   return (
     <div className="coin-app">
       <div className="coin-search">
-        <h3 className="coin-title">Top 5 Cryptocurrency in the world</h3>
+        <h3 className="coin-title"></h3>
         <h1 className="coin-text"> search currency</h1>
         <form>
           <input
