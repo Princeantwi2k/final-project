@@ -8,11 +8,12 @@ import Welcome from "../Body/Welcome";
 import Chart from "../Body/Chart";
 import New from "../Body/New";
 import Crypto from "../Body/Crypoto";
-
+import Navbar from "../Body/Navbar";
 const Home = () => {
   return (
     <>
       <div className="gradient-bg-welcome">
+        <Navbar />
         <Main />
         <Cards />
         <Chart />
