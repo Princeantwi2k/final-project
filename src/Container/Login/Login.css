@@ -1,11 +1,12 @@
 .login-container {
-  background-color: #fafafa;
+  background-image: url("../../images/pic1.png");
+  background-repeat: none;
   display: flex;
   justify-content: center;
   align-content: center;
   width: 100%;
   align-items: center;
-  height: 100vh;
+  height: 86vh;
 }
 
 .box {
