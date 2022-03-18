@@ -26,7 +26,6 @@ const Cryptocurrencies = ({ simplified }) => {
 
   return (
     <>
-      <Navbar />
       <div className="crypto-body">
         {!simplified && (
           <div className="search-crypto">

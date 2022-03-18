@@ -24,7 +24,6 @@ const News = ({ simplified }) => {
   if (!cryptoNews?.value) return <Loader />;
   return (
     <>
-      <Navbar />
       <Row gutter={[24, 24]}>
         {!simplified && (
           <Col span={24}>

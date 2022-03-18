@@ -23,7 +23,7 @@ function App() {
         <UserAuthContextProvider>
     <BrowserRouter>
    
-  
+  <Navbar />
     <Routes>
       <Route path='/login' exact element={<Login/>} />
       <Route path='/sign-up' exact element={<Signin/>} />

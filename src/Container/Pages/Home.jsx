@@ -13,7 +13,6 @@ const Home = () => {
   return (
     <>
       <div className="gradient-bg-welcome">
-        <Navbar />
         <Main />
         <Cards />
         <Chart />
