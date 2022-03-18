@@ -2,12 +2,25 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Botton from "../Bottom/Botton";
 import "./Nav.css";
+import { useUserAuth } from "../context/AuthContext";
+import { Avatar } from "antd";
+
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const { user, logOut } = useUserAuth();
 
+  console.log(user);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -61,15 +74,19 @@ const Navbar = () => {
 
             <li>
               <Link
-                to="/sign-up"
+                to="/login"
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Log Out
               </Link>
             </li>
           </ul>
-          {button && <Botton buttonStyle="btn--outline">SIGN UP</Botton>}
+          {button && (
+            <Botton buttonStyle="btn--outline" onClick={handleLogOut}>
+              Log out
+            </Botton>
+          )}
         </div>
       </nav>
     </>
