@@ -18,7 +18,7 @@ const Platform = () => {
           here are a few reasons why you should choose Realcash
         </p>
         <div className="container platform-container">
-          <div className="col-md-4 platform" data-aos="fade-up">
+          <div className="col-md-4 platform">
             <img src={pic2} alt="crypto" className="platform-pic1" />
             <h2 className="h2">Secure storage</h2>
             <p className="para">
@@ -26,7 +26,7 @@ const Platform = () => {
               storage.
             </p>
           </div>
-          <div className=" col-md-4 platform" data-aos="flip-left">
+          <div className=" col-md-4 platform">
             <img src={pic} alt="crypto" className="platform-pic" />
             <h2 className="h2">Protected by insurance</h2>
             <p className="para">
@@ -34,7 +34,7 @@ const Platform = () => {
               covered by FDIC insurance, up to a maximum of $250,000
             </p>
           </div>
-          <div className=" col-md-4 platform" data-aos="fade-up">
+          <div className=" col-md-4 platform">
             <img src={pic1} alt="crypto" className="platform-pic1" />
             <h2 className="h2">Industry best practices</h2>
             <p className="para">
