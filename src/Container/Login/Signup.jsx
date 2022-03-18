@@ -23,15 +23,15 @@ const Login = () => {
     }
   };
 
-  //   const handleGoogleSignIn = async (e) => {
-  //     e.preventDefault();
-  //     try {
-  //       await googleSignIn();
-  //       navigate("/home");
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <>
@@ -67,7 +67,7 @@ const Login = () => {
             <GoogleButton
               className="g-btn"
               type="dark"
-              //   onClick={handleGoogleSignIn}
+              onClick={handleGoogleSignIn}
             />
           </div>
           <div className="p-4 box mt-3 text-center">
