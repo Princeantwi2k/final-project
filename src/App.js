@@ -11,6 +11,7 @@ import Login from './Container/Login/Signup';
 import Signin from './Container/Login/Signin';
 import { UserAuthContextProvider } from './Container/context/AuthContext';
 import ProtectedRoute from './Container/Login/ProtectedRoute';
+import Footer from './Container/Body/Footer';
 
 
 
@@ -33,7 +34,7 @@ function App() {
       <Route path="/exchange" exact element={<ProtectedRoute><Exchanges/> </ProtectedRoute>} />
       <Route path='/crypto/:coinId' exact element = {<ProtectedRoute><Details /></ProtectedRoute>} />
     </Routes>
-  
+  <Footer />
     </BrowserRouter>
   
     </UserAuthContextProvider>
