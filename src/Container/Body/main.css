@@ -32,15 +32,19 @@ video {
   margin-left: 10px;
 }
 @media screen and (max-width: 960px) {
+  video {
+    display: none;
+  }
   .main-container {
+    background-image: url("../../images/img.jpg");
     display: flex;
     justify-content: center;
     text-align: center;
   }
   .main-container > h1 {
-    color: #fff;
+    color: white;
     margin: 0;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
   }
 }

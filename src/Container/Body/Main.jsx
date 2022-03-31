@@ -1,6 +1,7 @@
 import React from "react";
 import Botton from "../Bottom/Botton";
 import "./main.css";
+import { Link } from "react-router-dom";
 import "../../App.css";
 
 const Main = () => {
@@ -17,13 +18,15 @@ const Main = () => {
       </p>
       <div className="day">
         <div className="main-btn">
-          <Botton
-            className="btns"
-            buttonStyle="btn--outline"
-            buttonSizre="btn--large"
-          >
-            Connect to wallect
-          </Botton>
+          <Link to="/exchange">
+            <Botton
+              className="btns"
+              buttonStyle="btn--outline"
+              buttonSizre="btn--large"
+            >
+              Connect to wallet
+            </Botton>
+          </Link>
         </div>
         <div className="main-btn">
           <Botton
