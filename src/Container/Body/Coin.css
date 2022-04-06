@@ -58,7 +58,8 @@
   .coin-container {
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .coin-row {
     display: flex;
@@ -83,19 +84,25 @@
   }
   .coin-price {
     width: 110px;
-    padding: 2px;
+    margin: 2px;
+ 
+    
   }
   .coin-volume {
     width: 200px;
     padding: 2px;
+    display:none ;
   }
   .coin.marketcap {
     width: 245px;
-    padding: 2px;
+   padding: 3px;
+    
   }
   .coin-percent {
-    width: 80px;
-    padding: 2px;
+    width: 70px;
+    
+    padding: 4px;
+   
   }
   .red {
     color: rgb(255, 0, 0);
