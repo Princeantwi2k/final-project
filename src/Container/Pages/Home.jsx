@@ -6,6 +6,7 @@ import Platform from "../Body/Platform";
 import Chart from "../Body/Chart";
 import New from "../Body/New";
 import Crypto from "../Body/Crypoto";
+import Api from "../Body/Api";
 
 const Home = () => {
   return (
@@ -15,10 +16,9 @@ const Home = () => {
         <Cards />
         <Chart />
         <Crypto />
-        {/* <Api /> */}
-
-        <New />
         <Platform />
+        <Api />
+        <New />
       </div>
     </>
   );

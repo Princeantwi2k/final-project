@@ -13,11 +13,11 @@ import {
   NumberOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import LineChart from "./LineChart";
 import HTMLReactParser from "html-react-parser";
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from "./Welcome";
 import Loader from "./Loader";
-import Navbar from "./Navbar";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -26,7 +26,11 @@ const Details = () => {
   const { coinId } = useParams();
   const [timePeriod, setTimePeriod] = useState("7d");
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-  console.log(data);
+  // const { data: coinHistory } = useGetCryptoHistoryQuery(coinId, timePeriod);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    coinId,
+    timePeriod,
+  });
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
@@ -118,33 +122,15 @@ const Details = () => {
             <Option key={date}>{date}</Option>
           ))}
         </Select>
-
-        <Col>
-          <Title level={2} className="coin-details-heading">
-            What is {data?.data?.coin.name}?{" "}
-            {HTMLReactParser(data?.data?.coin.description)}
-          </Title>
-        </Col>
-
-        <Col className="coin-links">
-          <Title level={3} className="coin-details-heading">
-            {data?.data?.coin.name} Links
-          </Title>
-          {data?.data?.coin.links?.map((link) => (
-            <Row className="coin-link" key={link.name}>
-              <Title level={5} className="link-name">
-                {link.type}
-              </Title>
-              <a href={link.url} target="_blank" rel="noreferrer">
-                {link.name}
-              </a>
-            </Row>
-          ))}
-        </Col>
+        <LineChart
+          coinHistory={coinHistory}
+          currentPrice={millify(data?.data?.coin.price)}
+          coinName={data?.data?.coin.name}
+        />
         <Col className="stats-container">
           <Col className="coin-value-statistics">
             <Col className="coin-value-statistics-heading">
-              <Title level={3} className="coin-details-heading">
+              <Title level={3} className="coin-details-heading ">
                 {data?.data?.coin.name} Value Statistics
               </Title>
               <p>
@@ -184,6 +170,28 @@ const Details = () => {
               </Col>
             ))}
           </Col>
+        </Col>
+        <Col>
+          <Title level={2} className="coin-details-heading">
+            What is {data?.data?.coin.name}?{" "}
+          </Title>
+          <p>{HTMLReactParser(data?.data?.coin.description)}</p>
+        </Col>
+
+        <Col className="coin-links">
+          <Title level={3} className="coin-details-heading">
+            {data?.data?.coin.name} Links
+          </Title>
+          {data?.data?.coin.links?.map((link) => (
+            <Row className="coin-link" key={link.name}>
+              <Title level={5} className="link-name">
+                {link.type}
+              </Title>
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.name}
+              </a>
+            </Row>
+          ))}
         </Col>
       </Col>
     </>

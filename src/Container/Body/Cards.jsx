@@ -17,20 +17,20 @@ function Cards() {
               src={pic1}
               text="TBitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network without the need for intermediaries."
               label="Bitcon"
-              path="/services"
+              path="/crypto"
             />
             <CardItem
               src={pic2}
               text="Tether is a cryptocurrency that is hosted on the Ethereum and Bitcoin blockchains, among others. Its tokens are issued by the Hong Kong company Tether Limited, which in turn is controlled by the owners of Bitfinex"
               label="Tether"
-              path="/services"
+              path="/crypto"
             />
 
             <CardItem
               src={pic3}
               text="Ethereum is a decentralized, open-source blockchain with smart contract functionality. Ether is the native cryptocurrency of the platform"
               label="Etherem"
-              path="/products"
+              path="/crypto"
             />
           </ul>
         </div>

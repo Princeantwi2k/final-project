@@ -31,10 +31,51 @@ const Wallet = () => {
       setErrorMessage("Please install MetaMask browser extension to interact");
     }
   };
+
+  // update account, will cause component re-render
   const accountChangedHandler = (newAccount) => {
     setDefaultAccount(newAccount);
     updateEthers();
   };
+
+  const updateBalance = async () => {
+    let balanceBigN = await contract.balanceOf(defaultAccount);
+    let balanceNumber = balanceBigN.toNumber();
+
+    let tokenDecimals = await contract.decimals();
+
+    let tokenBalance = balanceNumber / Math.pow(10, tokenDecimals);
+
+    setBalance(toFixed(tokenBalance));
+  };
+
+  function toFixed(x) {
+    if (Math.abs(x) < 1.0) {
+      var e = parseInt(x.toString().split("e-")[1]);
+      if (e) {
+        x *= Math.pow(10, e - 1);
+        x = "0." + new Array(e).join("0") + x.toString().substring(2);
+      }
+    } else {
+      var e = parseInt(x.toString().split("+")[1]);
+      if (e > 20) {
+        e -= 20;
+        x /= Math.pow(10, e);
+        x += new Array(e + 1).join("0");
+      }
+    }
+    return x;
+  }
+
+  const chainChangedHandler = () => {
+    // reload the page to avoid any errors with chain change mid use of application
+    window.location.reload();
+  };
+
+  // listen for account changes
+  window.ethereum.on("accountsChanged", accountChangedHandler);
+
+  window.ethereum.on("chainChanged", chainChangedHandler);
 
   const updateEthers = () => {
     let tempProvider = new ethers.providers.Web3Provider(window.ethereum);
@@ -58,33 +99,6 @@ const Wallet = () => {
     }
   }, [contract]);
 
-  const updateBalance = async () => {
-    let balanceBigN = await contract.balanceOf(defaultAccount);
-    let balanceNumber = balanceBigN.toNumber();
-
-    let decimals = await contract.decimals();
-
-    let tokenBalance = balanceNumber / Math.pow(10, decimals);
-    setBalance(tokenBalance);
-  };
-
-  //   function toFixed(x) {
-  //     if (Math.abs(x) < 1.0) {
-  //       var e = parseInt(x.toString().split("e-")[1]);
-  //       if (e) {
-  //         x *= Math.pow(10, e - 1);
-  //         x = "0." + new Array(e).join("0") + x.toString().substring(2);
-  //       }
-  //     } else {
-  //       var e = parseInt(x.toString().split("+")[1]);
-  //       if (e > 20) {
-  //         e -= 20;
-  //         x /= Math.pow(10, e);
-  //         x += new Array(e + 1).join("0");
-  //       }
-  //     }
-  //     return x;
-  //   }
   const updateTokenName = async () => {
     setTokenName(await contract.name());
   };
@@ -104,6 +118,7 @@ const Wallet = () => {
           {tokenName} Balance: {balance}
         </h3>
         {errorMessage}
+        <p style={{ color: "red" }}> ***please install metamask</p>
       </div>
       <CryptoPaymentsForm contract={contract} />
     </div>

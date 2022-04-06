@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Botton from "../Bottom/Botton";
 import "./Nav.css";
 import { useUserAuth } from "../context/AuthContext";
-import { Avatar } from "antd";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
