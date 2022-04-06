@@ -34,7 +34,7 @@ const Main = () => {
             buttonStyle="btn--primary"
             buttonSizre="btn--large"
           >
-            REGISTER
+            Buy crypto
           </Botton>
         </div>
       </div>
