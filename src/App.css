@@ -360,6 +360,9 @@ a:hover {
 .crypto-card {
   min-width: 250px;
 }
+.crypto-card:hover {
+  transform: scale(1.1);
+}
 .crypto-card .crypto-image {
   width: 35px;
 }
