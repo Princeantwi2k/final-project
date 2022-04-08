@@ -9,7 +9,7 @@ const Footer = () => {
         level={5}
         style={{ color: "white", textAlign: "center" }}
       >
-        Copyright © 2021
+        Copyright © 2022
         <Link to="/">Realcash.</Link> <br />
         All Rights Reserved.
       </Typography.Title>
