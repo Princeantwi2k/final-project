@@ -12,6 +12,10 @@
 .box {
   border: 1px solid #dfdfdf;
   background-color: #fff;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+
 }
 
 .g-btn {
@@ -24,4 +28,63 @@
 .g-btn > div > svg {
   width: 40px !important;
   height: 38px !important;
+}
+
+.icon-login{
+  position: relative;
+  top: 30px;
+  z-index: 99;
+  font-size: 15px;
+  left: 350px;
+}
+.icons-logins{
+  position: relative;
+  top: 30px;
+  z-index: 99;
+  font-size: 15px;
+  left: 280px;
+}
+.icons-login{
+  position: relative;
+  bottom: 30px;
+  z-index: 99;
+  font-size: 15px;
+  left: 280px;
+}
+.iconss-login{
+  position: relative;
+  bottom: 30px;
+  z-index: 99;
+  font-size: 15px;
+  left: 350px;
+}
+@media screen and (max-width:960px) {
+  .icon-login{
+    position: relative;
+    top: 30px;
+    z-index: 99;
+    font-size: 15px;
+    left: 270px;
+  }
+  .iconss-login{
+    position: relative;
+    bottom: 30px;
+    z-index: 99;
+    font-size: 15px;
+    left: 270px;
+  }
+  .icons-logins{
+    position: relative;
+    top: 30px;
+    z-index: 99;
+    font-size: 15px;
+    left: 220px;
+  }
+  .icons-login{
+    position: relative;
+    bottom: 30px;
+    z-index: 99;
+    font-size: 15px;
+    left: 220px;
+  }
 }
