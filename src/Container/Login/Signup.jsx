@@ -5,6 +5,9 @@ import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../context/AuthContext";
 import "./Login.css";
+import { AiTwotoneMail } from "react-icons/ai";
+import { RiLockPasswordFill } from "react-icons/ri";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,6 +44,7 @@ const Login = () => {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
+              <AiTwotoneMail className="icons-logins" />
               <Form.Control
                 type="email"
                 placeholder="Email address"
@@ -54,6 +58,7 @@ const Login = () => {
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <RiLockPasswordFill className="icons-login" />
             </Form.Group>
 
             <div className="d-grid gap-2">

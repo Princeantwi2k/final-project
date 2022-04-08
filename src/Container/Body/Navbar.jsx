@@ -9,7 +9,7 @@ const Navbar = () => {
   const [button, setButton] = useState(true);
   const { user, logOut } = useUserAuth();
 
-  console.log(user);
+  
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -35,6 +35,7 @@ const Navbar = () => {
 
   window.addEventListener("resize", showButton);
 
+  
   return (
     <>
       <nav className="navbar">

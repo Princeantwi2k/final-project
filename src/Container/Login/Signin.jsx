@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../context/AuthContext";
+import { AiTwotoneMail } from "react-icons/ai";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 import "./Login.css";
 const Signin = () => {
@@ -31,6 +33,7 @@ const Signin = () => {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
+              <AiTwotoneMail className="icon-login" />
               <Form.Control
                 type="email"
                 placeholder="Email address"
@@ -44,6 +47,7 @@ const Signin = () => {
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <RiLockPasswordFill className="iconss-login" />
             </Form.Group>
 
             <div className="d-grid gap-2">
