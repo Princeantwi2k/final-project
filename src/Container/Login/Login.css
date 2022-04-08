@@ -13,14 +13,14 @@
   border: 1px solid #dfdfdf;
   background-image: linear-gradient(
     -225deg,
-    #1ff42a 38%,
-    #18f29e 59%,
-    #01d9ff 48%
+    #1fa6f4 38%,
+    #f2d118 59%,
+    rgb(79, 192, 192) 48%
   );
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-
+border-radius: 10px;
 }
 .login-topic{
   color: white;
@@ -72,14 +72,14 @@
     top: 30px;
     z-index: 99;
     font-size: 15px;
-    left: 270px;
+    left: 250px;
   }
   .iconss-login{
     position: relative;
     bottom: 30px;
     z-index: 99;
     font-size: 15px;
-    left: 270px;
+    left: 250px;
   }
   .icons-logins{
     position: relative;
