@@ -113,10 +113,8 @@ const Wallet = () => {
         >
           {connButtonText}
         </button>
-        <p>Address: {defaultAccount}</p>
-        <h3>
-          {tokenName} Balance: {balance}
-        </h3>
+        <h6>Address: {defaultAccount}</h6>
+
         {errorMessage}
         <p style={{ color: "red" }}> ***please install metamask</p>
       </div>
