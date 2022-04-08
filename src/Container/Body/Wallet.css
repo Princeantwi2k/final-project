@@ -6,6 +6,7 @@
   border: 2px solid black;
   padding: 40px;
   margin: 8%;
+  border-radius: 20px;
 }
 .walletname {
   text-align: center;
@@ -19,6 +20,7 @@
     #18f259 59%,
     #01ff38 48%
   );
+  border-radius: 20px;
 }
 @media screen and (max-width: 960px) {
   .wallet {
