@@ -29,13 +29,15 @@ const Main = () => {
           </Link>
         </div>
         <div className="main-btn">
-          <Botton
-            className="btns"
-            buttonStyle="btn--primary"
-            buttonSizre="btn--large"
-          >
-            Buy crypto
-          </Botton>
+          <Link to="/buy">
+            <Botton
+              className="btns"
+              buttonStyle="btn--primary"
+              buttonSizre="btn--large"
+            >
+              Buy crypto
+            </Botton>
+          </Link>
         </div>
       </div>
     </div>

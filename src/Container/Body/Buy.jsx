@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Buycrypto from "./BuyCrypto";
 import { ethers } from "ethers";
-
-import CryptoPaymentsForm from "./crytoPaymentForm";
 import simple_token_abi from "../Contracts/simple_token_abi.json";
-import "./Wallet.css";
-import Alert from "react-bootstrap/Alert";
-const Wallet = () => {
+
+const Buy = () => {
   let contractAddress = "0xf26b7a6fae931c44b6fc7378c9a38d9b4ba347e6";
 
   const [tokenName, setTokenName] = useState("Token");
@@ -106,8 +104,8 @@ const Wallet = () => {
   };
 
   return (
-    <div className="wallet  ">
-      <div className="mainwallet">
+    <div className="wallet ">
+      <div className="mainwallets">
         <h2 className="walletname"> {tokenName + "  Wallet"} </h2>
         <button
           onClick={connectWalletHandler}
@@ -120,9 +118,9 @@ const Wallet = () => {
         {errorMessage}
         <p style={{ color: "red" }}> ***please install metamask</p>
       </div>
-      <CryptoPaymentsForm contract={contract} />
+      <Buycrypto contract={contract} />
     </div>
   );
 };
 
-export default Wallet;
+export default Buy;
