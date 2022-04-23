@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap");
+
+.Buy {
+  text-align: center;
+  font-family: "Roboto";
+  letter-spacing: 0.1rem;
+}
+.wallets {
+    display: flex;
+    justify-content: space-around;
+    
+}
+.mainwallets{
+    border: 2px solid black;
+    padding: 40px;
+    margin: 8%;
+    border-radius: 20px;
+}
+
+.checkout {
+    background: #000000; /* fallback for old browsers */
+    display: flex;
+    flex-direction: row;
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 500px;
+    width: 20%;
+  }
+  
+  .checkout-form {
+    padding: 10px 10px;
+  }
+  
+  .checkout-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .checkout-field label {
+    text-align: left;
+    color: #b7b7ca;
+    font-size: 10px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  
+  .checkout-field input {
+    background-color: transparent;
+    border: 1px solid #cecece;
+    border-radius: 5px;
+    color: #e0eafc;
+    height: 35px;
+    padding: 10px;
+  }
+  
+  .checkout-field input:focus {
+    background-color: transparent;
+    outline: none;
+  }
+  
+  .paystack-button {
+    cursor: pointer;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    background-color: #bfbfbf;
+    font-weight: bold;
+    color: #e0eafc;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 45px;
+    margin-top: 40px;
+  }
+  
+  .paystack-button:hover {
+    background-color: #dadada;
+  }
+  
+  .paystack-button:focus {
+    outline: none;
+  }
+  .mainwallet {
+    border: 2px solid black;
+    padding: 40px;
+    margin: 8%;
+    border-radius: 20px;
+  }
+  .walletname {
+    text-align: center;
+  }
+  .walletforms {
+    padding: 50px;
+    margin: 8%;
+   background-color: #000000;
+    border-radius: 20px;
+  }
+  @media screen and (max-width: 960px) {
+    .wallets {
+      display: block;
+    }
+    .mainwallets {
+      border: 2px solid black;
+      padding: 40px;
+      margin-right: 4%;
+      margin-left: 4%;
+      
+    }
+  }
