@@ -13,6 +13,7 @@ const Buycrypto = () => {
   const componentProps = {
     email,
     amount,
+    currency: "GHS",
     metadata: {
       name,
       phone,
@@ -28,19 +29,12 @@ const Buycrypto = () => {
     },
     onClose: () => alert("Wait! Purchase some crypto, don't go!!!!"),
   };
-  return (
-    <div className="buy">
-      <div className="container">
-        {/* <div className="item"> */}
-        {/* <div className="overlay-effect"></div> */}
 
-        {/* <div className="item-details"> */}
-        {/* <p className="item-details__title">Coconut Oil</p> */}
-        {/* <p className="item-details__amount">NGN {amount / 100}</p> */}
-        {/* </div> */}
-        {/* </div> */}
-        <div className="walletforms card">
-          <div>
+  return (
+    <div className="Buy">
+      <div className="container">
+        <div className="checkout">
+          <div className="checkout-form">
             <div className="checkout-field">
               <label>Name</label>
               <input
@@ -74,6 +68,7 @@ const Buycrypto = () => {
                 type="text"
                 id="amount"
                 value={amount}
+                GHS
                 onChange={(e) => setAmount(e.target.value)}
               />
             </div>
