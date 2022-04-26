@@ -1,12 +1,14 @@
 .wallet {
   display: flex;
   justify-content: space-around;
+  background-image: url("../../images/coin.jpg");
 }
 .mainwallet {
   border: 2px solid black;
   padding: 40px;
   margin: 8%;
   border-radius: 20px;
+  background-color: white;
 }
 .walletname {
   text-align: center;
