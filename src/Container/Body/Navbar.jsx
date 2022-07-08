@@ -9,7 +9,6 @@ const Navbar = () => {
   const [button, setButton] = useState(true);
   const { user, logOut } = useUserAuth();
 
-  
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -35,7 +34,6 @@ const Navbar = () => {
 
   window.addEventListener("resize", showButton);
 
-  
   return (
     <>
       <nav className="navbar">
@@ -72,6 +70,12 @@ const Navbar = () => {
               </Link>
             </li>
 
+            <li className="nav-item">
+              <Link to="/quiz" className="nav-links" onClick={closeMobileMenu}>
+                Quiz
+              </Link>
+            </li>
+
             <li>
               <Link
                 to="/login"
@@ -81,12 +85,14 @@ const Navbar = () => {
                 Log Out
               </Link>
             </li>
+            <li className="nav-links-mobile">
+              {button && (
+                <Botton buttonStyle="btn--outline" onClick={handleLogOut}>
+                  Log out
+                </Botton>
+              )}
+            </li>
           </ul>
-          {button && (
-            <Botton buttonStyle="btn--outline" onClick={handleLogOut}>
-              Log out
-            </Botton>
-          )}
         </div>
       </nav>
     </>

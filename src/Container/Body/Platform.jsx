@@ -17,7 +17,7 @@ const Platform = () => {
         <p className="p">
           here are a few reasons why you should choose Realcash
         </p>
-        <div className="container platform-container">
+        <div className="containe platform-c">
           <div className="col-md-4 platform">
             <img src={pic2} alt="crypto" className="platform-pic1" />
             <h2 className="h2">Secure storage</h2>
