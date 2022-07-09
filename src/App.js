@@ -16,6 +16,9 @@ import Footer from './Container/Body/Footer';
 import Buycrypto from './Container/Body/BuyCrypto';
 import QuestionBox from './Container/Body/QuestionBox';
 import Quiz from './Container/Body/Quiz';
+import Realquiz from './Container/RealcashQuiz/Realquiz';
+import QuizIntruction from './Container/RealcashQuiz/QuizIntruction';
+import Test from './Container/RealcashQuiz/Test';
 
 
 
@@ -36,7 +39,9 @@ function App() {
       <Route path="/" exact element={<ProtectedRoute><Home /></ProtectedRoute>} />
       <Route path="/news" exact  element={<ProtectedRoute><News /></ProtectedRoute>} />
       <Route path="/crypto" exact element={<ProtectedRoute><Cryptocurrencies /> </ProtectedRoute>} />
-      <Route path="/quiz" exact element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
+      <Route path="/quiz" exact element={<ProtectedRoute><Realquiz /></ProtectedRoute>} />
+      <Route path="/play/instructions" exact element={<ProtectedRoute><QuizIntruction /></ProtectedRoute>} />
+      <Route path="/play/quiz" exact element={<ProtectedRoute><Test /></ProtectedRoute>} />
       <Route path="/buy" exact element={<ProtectedRoute><Buycrypto/></ProtectedRoute>} />
       <Route path="/exchange" exact element={<ProtectedRoute><Exchanges/> </ProtectedRoute>} />
       <Route path='/crypto/:coinId' exact element = {<ProtectedRoute><Details /></ProtectedRoute>} />

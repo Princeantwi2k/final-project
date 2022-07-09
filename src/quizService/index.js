@@ -82,142 +82,142 @@ const qBank = [
     questionId: "98390"
   },
   {
-    question: "What does a funambulist walk on?",
-    answers: ["A Tight Rope", "Broken Glass", "Balls", "The Moon"],
-    correct: "A Tight Rope",
+    question: "Which of the following is popularly used for storing bitcoins? ",
+    answers: ["Pocket", "Wallet", "Stack"],
+    correct: "Wallet",
     questionId: "1071006"
   },
   {
-    question: "In past times, what would a gentleman keep in his fob pocket?",
-    answers: ["Watch", "Money", "Keys", "Notebook"],
-    correct: "Watch",
+    question: "Which site run by Ross Ulbricht was closed by the FBI for letting people buy drugs with Bitcoin?",
+    answers: ["Silk Road", "Silk Street", "Dark Alley"],
+    correct: "Silk Road",
     questionId: "1174154"
   },
   {
-    question: "Area 51 is located in which US state?",
-    answers: ["Nevada", "Arizona", "New Mexico", "Utah"],
-    correct: "Nevada",
+    question: "Which of these US states introduced the BitLicense regulation for cryptocurrency companies?",
+    answers: ["California", "New York", "Texas"],
+    correct: "New York",
     questionId: "1226535"
   },
   {
-    question: "How would one say goodbye in Spanish?",
-    answers: ["Adiós", " Hola", "Au Revoir", "Salir"],
-    correct: "Adiós",
+    question: "Cryptographic Hash Function transforms an arbitrary length of a fixed length string that act more or less as a Fingerprint of the document",
+    answers: ["True", " False", ],
+    correct: "False",
     questionId: "1310938"
   },
   {
-    question: "What is the largest organ of the human body?",
-    answers: ["Skin", "Heart", "large Intestine", "Liver"],
-    correct: "Skin",
+    question: "What is the name of the famous Bitcoin exchange from Japan that collapsed in 2014?",
+    answers: [" Blockchain.info", " Tradehill", " Mt. Gox", ],
+    correct: " Mt. Gox",
     questionId: "1436873"
   },
   {
-    question: "Which sign of the zodiac is represented by the Crab?",
-    answers: ["Cancer", "Libra", "Virgo", "Sagittarius"],
-    correct: "Cancer",
+    question: "What does the block in the blockchain consist of?",
+    answers: ["Transaction data", "A Hash point", "A Timestamp", "All of these"],
+    correct: "All of these",
     questionId: "1515110"
   },
   {
-    question: "On a dartboard, what number is directly opposite No. 1?",
-    answers: ["19", "20", "12", "15"],
-    correct: "19",
+    question: "After 10 Minutes a new block is formed that contains latest transactions",
+    answers: ["True", "False", ],
+    correct: "True",
     questionId: "1642728"
   },
   {
     question:
-      "What does the 'S' stand for in the abbreviation SIM, as in SIM card? ",
-    answers: ["Subscriber", "Single", "Secure", "Solid"],
-    correct: "Subscriber",
+      "A bitcoin address collision happens when 2 different payments are made at the same time to the same bitcoin address ",
+    answers:["True", "False", ],
+    correct: "False",
     questionId: "1747256"
   },
   {
     question:
-      "What word represents the letter 'T' in the NATO phonetic alphabet?",
-    answers: ["Tango", "Target", "Taxi", "Turkey"],
-    correct: "Tango",
+      "What is not a ledger type considered by users in Blockchain?",
+    answers: ["Distributed Ledger", "Decentralized Ledger", " Both a and b", " None of these"],
+    correct: " None of these",
     questionId: "1822532"
   },
   {
-    question: "Which American president appears on a one dollar bill?",
+    question: "What is the impact of information leak for an organization?",
     answers: [
-      "George Washington",
-      "Thomas Jefferson",
-      "Abraham Lincoln",
-      "Benjamin Franklin"
+      "Loss in profit",
+      " Loss of trust in customers",
+      "Cut down the reputation of the organization",
+      " All of these"
     ],
-    correct: "George Washington",
+    correct: " All of these",
     questionId: "195075"
   },
   {
-    question: 'What is "dabbing"?',
-    answers: ["A dance", "A medical procedure", "A sport", "A language"],
-    correct: "A dance",
+    question: 'What time did Bitcoin Network Start?',
+    answers: [" January 2009", " September 2001", "November 2008", ],
+    correct: "January 2009",
     questionId: "2019778"
   },
   {
-    question: "What is the name of the Jewish New Year?",
-    answers: ["Rosh Hashanah", "Elul", "New Year", "Succoss"],
-    correct: "Rosh Hashanah",
+    question: "How many new Bitcoins are created every day?",
+    answers: [" 2200 Except of leap year", "3600", "7200", "5000"],
+    correct: "3600",
     questionId: "2134343"
   },
   {
-    question: "Which one of the following rhythm games was made by Harmonix?",
+    question: "What is the initial application for which Blockchain was designed?",
     answers: [
-      "Rock Band",
-      "Meat Beat Mania",
-      "Guitar Hero Live",
-      "Dance Dance Revolution"
+      " Peer-to-peer finance application",
+      " Research Project",
+      "Open source finance software to connect Banks",
+      "None of these"
     ],
-    correct: "Rock Band",
+    correct: "None of these",
     questionId: "2210799"
   },
   {
     question:
-      "What type of animal was Harambe, who was shot after a child fell into it's enclosure at the Cincinnati Zoo?",
-    answers: ["Gorilla", "Tiger", "Panda", "Crocodile"],
-    correct: "Gorilla",
+      "An orphan block is only created when 51% attack is successful",
+    answers: ["True", "False", ],
+    correct: "False",
     questionId: "2379831"
   },
   {
-    question: "Red Vines is a brand of what type of candy?",
-    answers: ["Licorice", "Lollipop", "Chocolate", "Bubblegum"],
-    correct: "Licorice",
+    question: "Where is the bitcoin central server located?",
+    answers: [" Washington DC", " Undisclosed Location", "London", " None of these"],
+    correct: " None of these",
     questionId: "2426418"
   },
   {
-    question: "What is the nickname of the US state of California?",
-    answers: ["Golden State", "Sunshine State", "Bay State", "Treasure State"],
-    correct: "Golden State",
+    question: "What does a ledger in blockchain does?",
+    answers: [" Mapping between owner and object", "Identification of objects owned", "Identification of owners", ],
+    correct: " Mapping between owner and object",
     questionId: "2510086"
   },
   {
-    question: "What is on display in the Madame Tussaud's museum in London?",
+    question: "First step of Blockchain project implementation is?",
     answers: [
-      "Wax sculptures",
-      "Designer clothing",
-      "Unreleased film reels",
-      "Vintage cars"
+      " Requirement identification",
+      " Feasible study on the security",
+      " Screen idea consideration",
+      " Controlling and monitoring the project"
     ],
-    correct: "Wax sculptures",
+    correct: "Requirement identification",
     questionId: "2685745"
   },
   {
     question:
-      "What was the nickname given to the Hughes H-4 Hercules, a heavy transport flying boat which achieved flight in 1947?",
-    answers: ["Spruce Goose", "Noah's Ark", "Fat Man", "Trojan Horse"],
-    correct: "Spruce Goose",
+      "What is the name of the first academic paper that describes bitcoin commonly referred to as?",
+    answers: [" The origins of money", "The Bitcoin Whitepaper", "The great unrevealing", ],
+    correct: " The Bitcoin Whitepaper",
     questionId: "2796884"
   },
   {
-    question: "Which of these colours is NOT featured in the logo for Google?",
-    answers: ["Pink", "Yellow", "Blue", "Green"],
-    correct: "Pink",
+    question: "Which of the following is important for Blockchain",
+    answers: [" Database Security", "Auditing", "Planning", ],
+    correct: "Planning",
     questionId: "2838900"
   },
   {
-    question: 'What is the French word for "hat"?',
-    answers: ["Chapeau", "Bonnet", " Écharpe", " Casque"],
-    correct: "Chapeau",
+    question: 'How often does Bitcoin ledger reconcile',
+    answers: [" Every day", " Every 3 months", " Every 3 Minutes", "  Every 10 Minutes"],
+    correct: " Every 10 Minutes",
     questionId: "298060"
   },
   {
