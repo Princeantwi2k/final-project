@@ -1,0 +1,60 @@
+.instructions{
+    border:1px solid darken($white, 10%) ;
+    border-radius: 5px;
+    margin-top: $lg;
+    margin-bottom: $lg;
+    padding: $sm $lg ;
+
+
+    h1{
+   color:$black;
+   font-size: $md;
+   text-align: center;
+    }
+    .lifeline{
+        position: relative;
+        top:-3px
+    }
+    .lifeline-icon{
+        color:$green;
+        cursor: pointer;
+    }
+
+    .broswer-default{
+        padding-left: 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    img{
+        width: 70%;
+        height: 40%;
+    }
+.options{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.left{
+    background-color: rgb(34, 149, 216);
+    padding: $normal;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.14),  0 3px,1px -2px rgba(0, 0, 0, 0.14) ;
+    
+}
+
+a.left:hover{
+    color: $white;
+    
+}
+
+
+}
+
+
+@media (max-width:$md-breakpoint) {
+    .instructions img{
+        width:100% !important;
+        height: 150% !important; 
+    }
+}

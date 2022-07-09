@@ -1,0 +1,68 @@
+#Realquiz{
+    background-image: url(../../images/i.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    section{
+   background-color: rgb(0,0,0,0.7);
+   padding-left: $md;
+   padding-right: $md;
+   height: 80%;
+   border-radius: 5px;
+   width: 35%;
+   margin-top: 2%;
+    }
+    .cube{
+        font-size: 8rem;
+        color: $orange;
+    }
+    h2{
+        padding-top: $sm;
+        font-size: $lg;
+        text-align: center;
+        color: $white;
+        font-weight: bold;
+        margin-top: 30%;   
+    }
+    p{
+        padding: $sm;
+        color: $white;
+        font-size: $normal;
+        text-align: center;
+    }
+    li{
+        list-style: none;
+    }
+    .play-button-container{
+        width: 100%;
+        margin-top: 5%;
+      
+    }
+    a.play-buttom{
+        background-color: $green;
+        color: #fff;
+        cursor: pointer;
+        padding: $normal;
+        display: block;
+       
+        border-radius: $border;
+        text-align: center;
+        transition: 0.3s linear all;
+    }
+    a.play-buttom:hover{
+     background-color: darken($green,10%) ; 
+     box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.14),  0 3px,1px -2px rgba(0, 0, 0, 0.14)
+    }
+}
+
+@media (max-width:768px) {
+    #Realquiz section {
+        padding: 0 $normal;
+        width: 100%;
+        height: 100%;
+    }
+}
