@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css'
 import {Provider} from 'react-redux'
 import './Styles/quiz.scss'
+import '../node_modules/@mdi/font/css/materialdesignicons.min.css';
+import '../node_modules/materialize-css/dist/css/materialize.min.css';
+import '../node_modules/materialize-css/dist/js/materialize.min.js';
  
 
 

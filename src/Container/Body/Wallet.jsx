@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 import CryptoPaymentsForm from "./crytoPaymentForm";
 import simple_token_abi from "../Contracts/simple_token_abi.json";
 import "./Wallet.css";
-import Alert from "react-bootstrap/Alert";
+
 const Wallet = () => {
   let contractAddress = "0xf26b7a6fae931c44b6fc7378c9a38d9b4ba347e6";
 

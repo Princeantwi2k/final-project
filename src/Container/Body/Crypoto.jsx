@@ -3,7 +3,6 @@ import "./Chart.css";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
 import Cryptocurrencies from "./Cryptocurrency";
-import Navbar from "./Navbar";
 
 const { Title } = Typography;
 

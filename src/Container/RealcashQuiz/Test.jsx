@@ -4,6 +4,7 @@ import { MdWbIncandescent } from "react-icons/md";
 import { GiConcentrationOrb } from "react-icons/gi";
 import { FcClock } from "react-icons/fc";
 import M from "materialize-css";
+
 import questions from "../../questions.json";
 import isEmpty from "../utils/is-Empty";
 
@@ -63,21 +64,36 @@ class Test extends Component {
   };
 
   handleOptionClick = (e) => {
-    M.toast({
-      html: "options",
-    });
+    if (e.target.innerHTML.toLowerCase === this.state.answer) {
+      this.correctAnswers();
+    } else {
+      this.wrongAnswers();
+    }
   };
 
-  correctAnswer = () => {
+  correctAnswers = () => {
     M.toast({
       html: "correct Answer",
-      classes: "toast",
+      classes: "toast-valid",
       displayLength: 1500,
     });
-    this.setState((prevstate) => ({
-      score: prevstate.score + 1,
-      correctAnswer: prevstate.correctAnswer + 1,
-      currentQuestionIndex: prevstate.currentQuestionIndex + 1,
+    this.setState((prevState) => ({
+      score: prevState.score + 1,
+      correctAnswers: prevState.correctAnswers + 1,
+      currentQuestionIndex: prevState.currentQuestionIndex + 1,
+      numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion + 1,
+    }));
+  };
+  wrongAnswers = () => {
+    navigator.vibrate(1000);
+    M.toast({
+      html: "wrong Answer",
+      classes: "toast-invalid",
+      displayLength: 1500,
+    });
+    this.setState((prevState) => ({
+      wrongAnswers: prevState.wrongAnswers + 1,
+      numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion,
     }));
   };
   render() {
