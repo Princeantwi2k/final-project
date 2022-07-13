@@ -14,8 +14,7 @@ import ProtectedRoute from './Container/Login/ProtectedRoute';
 import Footer from './Container/Body/Footer';
 
 import Buycrypto from './Container/Body/BuyCrypto';
-import QuestionBox from './Container/Body/QuestionBox';
-import Quiz from './Container/Body/Quiz';
+
 import Realquiz from './Container/RealcashQuiz/Realquiz';
 import QuizIntruction from './Container/RealcashQuiz/QuizIntruction';
 import Test from './Container/RealcashQuiz/Test';
