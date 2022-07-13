@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import { MdWbIncandescent } from "react-icons/md";
-import { GiConcentrationOrb } from "react-icons/gi";
+
 import { FcClock } from "react-icons/fc";
 import M from "materialize-css";
-
+import CorrectNotification from "../../assets/correct-answer.mp3";
+import wrongNotification from "../../assets/wrong-answer.mp3";
+import buttonNotification from "../../assets/button-answer.mp3";
 import questions from "../../questions.json";
 import isEmpty from "../utils/is-Empty";
+import { Link } from "react-router-dom";
 
 class Test extends Component {
   constructor(props) {
@@ -59,66 +61,173 @@ class Test extends Component {
         nextQuestion,
         previousQuestion,
         answer,
+        numberofQuestion: questions.length,
       });
     }
   };
 
-  handleOptionClick = (e) => {
-    if (e.target.innerHTML.toLowerCase === this.state.answer) {
-      this.correctAnswers();
+  handleOptionClick = (event) => {
+    if (
+      event.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()
+    ) {
+      setTimeout(() => {
+        document.getElementById("correct-sound").play();
+      }, 500);
+
+      this.correctAnswer();
     } else {
-      this.wrongAnswers();
+      setTimeout(() => {
+        document.getElementById("wrong-sound").play();
+      }, 500);
+
+      this.wrongAnswer();
     }
   };
 
-  correctAnswers = () => {
+  handleButtonClick = (e) => {
+    switch (e.target.id) {
+      case "next-button":
+        this.handleNextButtonClick();
+        break;
+      case "previous-button":
+        this.handlePreviousButtonClick();
+        break;
+      case "quit-button":
+        this.handleQuitButtonClick();
+        break;
+      default:
+        break;
+    }
+    this.playButtonSound();
+  };
+  playButtonSound = () => {
+    document.getElementById("button-sound").play();
+  };
+
+  handleNextButtonClick = () => {
+    this.playButtonSound();
+    if (this.state.nextQuestion !== undefined) {
+      this.setState(
+        (prevState) => ({
+          currentQuestionIndex: prevState.currentQuestionIndex + 1,
+        }),
+        () => {
+          this.displayQuestions(
+            this.state.state,
+            this.state.currentQuestion,
+            this.state.nextQuestion,
+            this.state.previousQuestion
+          );
+        }
+      );
+    }
+  };
+  handlePreviousButtonClick = () => {
+    this.playButtonSound();
+    if (this.state.previousQuestion !== undefined) {
+      this.setState(
+        (prevState) => ({
+          currentQuestionIndex: prevState.currentQuestionIndex - 1,
+        }),
+        () => {
+          this.displayQuestions(
+            this.state.state,
+            this.state.currentQuestion,
+            this.state.nextQuestion,
+            this.state.previousQuestion
+          );
+        }
+      );
+    }
+  };
+
+  handleQuitButtonClick = () => {
+    this.playButtonSound();
+    if (window.confirm("Are you sure tou want to quit")) {
+      <Link to="/"></Link>;
+    }
+  };
+
+  correctAnswer = () => {
     M.toast({
       html: "correct Answer",
       classes: "toast-valid",
       displayLength: 1500,
     });
-    this.setState((prevState) => ({
-      score: prevState.score + 1,
-      correctAnswers: prevState.correctAnswers + 1,
-      currentQuestionIndex: prevState.currentQuestionIndex + 1,
-      numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion + 1,
-    }));
+    this.setState(
+      (prevState) => ({
+        score: prevState.score + 1,
+        correctAnswers: prevState.correctAnswers + 1,
+        currentQuestionIndex: prevState.currentQuestionIndex + 1,
+        numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion + 1,
+      }),
+      () => {
+        this.displayQuestions(
+          this.state.questions,
+          this.state.currentQuestion,
+          this.state.previousQuestion,
+          this.state.nextQuestion
+        );
+      }
+    );
   };
-  wrongAnswers = () => {
+  wrongAnswer = () => {
     navigator.vibrate(1000);
     M.toast({
-      html: "wrong Answer",
+      html: "Wrong Answer",
       classes: "toast-invalid",
       displayLength: 1500,
     });
-    this.setState((prevState) => ({
-      wrongAnswers: prevState.wrongAnswers + 1,
-      numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion,
-    }));
+    this.setState(
+      (prevState) => ({
+        wrongAnswers: prevState.wrongAnswer + 1,
+        currentQuestionIndex: prevState.currentQuestionIndex + 1,
+        numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1,
+      }),
+      () => {
+        this.displayQuestions(
+          this.state.questions,
+          this.state.currentQuestion,
+          this.state.nextQuestion,
+          this.state.previousQuestion
+        );
+      }
+    );
   };
   render() {
-    const { currentQuestion } = this.state;
+    const { currentQuestion, currentQuestionIndex, numberofQuestion } =
+      this.state;
 
     return (
       <>
         <Helmet>
           <title>Quiz Page</title>
         </Helmet>
+        <Fragment>
+          <audio id="correct-sound" src={CorrectNotification}></audio>
+          <audio id="wrong-sound" src={wrongNotification}></audio>
+          <audio id="button-sound" src={buttonNotification}></audio>
+        </Fragment>
         <div className="questions">
-          <h2>Quiz Mode</h2>
+          <h2>Realcash Game</h2>
           <div className="lifeline-container">
             <p>
-              <GiConcentrationOrb className="lifeline-icon" />{" "}
-              <span className="lifeline"> 2</span>
+              <span className="mdi mdi-set-center mdi-24px lifeline-icon">
+                <span className="lifeline"></span>
+              </span>
             </p>
             <p>
-              <MdWbIncandescent className="lifeline-icon" />{" "}
-              <span className="lifeline"> 5</span>
+              <span className="mdi mdi-lightbulb-on mdi-24px lifeline-icon">
+                5
+              </span>{" "}
             </p>
           </div>
           <div className="lifeline-container">
             <p>
-              <span>1 of 15</span>
+              <span>
+                {" "}
+                {currentQuestionIndex + 1} of {numberofQuestion}
+              </span>
             </p>
             <p>
               {" "}
@@ -144,9 +253,17 @@ class Test extends Component {
             </p>
           </div>
           <div className="button-container">
-            <button> Previous</button>
-            <button>Next </button>
-            <button> Quit</button>
+            <button id="previous-button" onClick={this.handleButtonClick}>
+              {" "}
+              Previous
+            </button>
+            <button id="next-button" onClick={this.handleButtonClick}>
+              Next{" "}
+            </button>
+            <button id="quit-button" onClick={this.handleButtonClick}>
+              {" "}
+              Quit
+            </button>
           </div>
         </div>
       </>
