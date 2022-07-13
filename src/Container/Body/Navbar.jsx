@@ -72,7 +72,7 @@ const Navbar = () => {
 
             <li className="nav-item">
               <Link to="/quiz" className="nav-links" onClick={closeMobileMenu}>
-                Quiz
+                Game
               </Link>
             </li>
 

@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 const Realquiz = () => (
   <Fragment>
     <Helmet>
-      <title>Realcash Quiz</title>
+      <title>Realcash Game</title>
     </Helmet>
     <div id="Realquiz">
       <section>
         <div>
           <span className="mdi mdi-cube-outline cube"></span>
         </div>
-        <h2>Realcash Quiz</h2>
+        <h2>Realcash Game</h2>
         <p> want to learn more about cryptocurrency?</p>
         <div className="play-button-container">
           <ul>

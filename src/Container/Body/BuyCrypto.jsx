@@ -8,11 +8,13 @@ const Buycrypto = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [amount, setAmount] = useState("");
+  const [type, setType] = useState("");
   const [walletAddress, setWalletAdress] = useState("");
 
   const componentProps = {
     email,
     amount,
+    type,
     currency: "GHS",
     metadata: {
       name,
@@ -25,6 +27,7 @@ const Buycrypto = () => {
       setName("");
       setPhone("");
       setAmount("");
+      setType("");
       setWalletAdress("");
     },
     onClose: () => alert("Wait! Purchase some crypto, don't go!!!!"),
@@ -59,6 +62,15 @@ const Buycrypto = () => {
                 type="text"
                 id="phone"
                 value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className="checkout-field">
+              <label>Preferred currency</label>
+              <input
+                type="text"
+                id="type"
+                value={type}
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
