@@ -13,12 +13,14 @@
    padding-right: $md;
    height: 80%;
    border-radius: 5px;
-   width: 35%;
+   width: 40%;
    margin-top: 2%;
     }
     .cube{
-        font-size: 8rem;
+        font-size: 7rem;
         color: $orange;
+
+        margin-left: 10rem;
     }
     h2{
         padding-top: $sm;
@@ -26,7 +28,7 @@
         text-align: center;
         color: $white;
         font-weight: bold;
-        margin-top: 30%;   
+        
     }
     p{
         padding: $sm;
@@ -62,7 +64,51 @@
 @media (max-width:768px) {
     #Realquiz section {
         padding: 0 $normal;
+        width: 90%;
+        height: 80%;
+    
+    .cube{
+        font-size: 8rem;
+        color: $orange;
+        margin-left: 6rem;
+
+    }
+    h2{
+        padding-top: $xs;
+        font-size: $lg;
+        text-align: center;
+        color: $white;
+        font-weight: bold;
+        margin-top: 10%;   
+    }
+    p{
+        padding: $sm;
+        color: $white;
+        font-size: $normal;
+        text-align: center;
+    }
+    li{
+        list-style: none;
+    }
+    .play-button-container{
         width: 100%;
-        height: 100%;
+        margin-top: 5%;
+      
+    }
+    a.play-buttom{
+        background-color: $green;
+        color: #fff;
+        cursor: pointer;
+        padding: $normal;
+        display: block;
+       
+        border-radius: $border;
+        text-align: center;
+        transition: 0.3s linear all;
+    }
+    a.play-buttom:hover{
+     background-color: darken($green,10%) ; 
+     box-shadow: 0 2px 2px 0 rgba( 0, 0, 0, 0.14),  0 3px,1px -2px rgba(0, 0, 0, 0.14)
+    }
     }
 }
