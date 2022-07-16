@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
-
+import classnames from "classnames";
 import { FcClock } from "react-icons/fc";
 import M from "materialize-css";
 import CorrectNotification from "../../assets/correct-answer.mp3";
@@ -28,9 +28,17 @@ class Test extends Component {
       hints: 5,
       fiftyFifty: 2,
       usedFiftyfifty: false,
+      prevRandomNumber: [],
       time: {},
+      nextButtomDisable: false,
+      prevButtomDisable: true,
     };
+    this.interval = null;
+    this.correctSound = React.createRef();
+    this.wrongSound = React.createRef();
+    this.buttonSound = React.createRef();
   }
+
   componentDidMount() {
     const { questions, currentQuestion, previousQuestion, nextQuestion } =
       this.state;
@@ -40,8 +48,12 @@ class Test extends Component {
       nextQuestion,
       previousQuestion
     );
+    this.startTimer();
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   displayQuestions = (
     questions = this.state.questions,
     currentQuestion,
@@ -56,13 +68,20 @@ class Test extends Component {
       previousQuestion = questions[currentQuestionIndex - 1];
       const answer = currentQuestion.answer;
 
-      this.setState({
-        currentQuestion,
-        nextQuestion,
-        previousQuestion,
-        answer,
-        numberofQuestion: questions.length,
-      });
+      this.setState(
+        {
+          currentQuestion,
+          nextQuestion,
+          previousQuestion,
+          answer,
+          numberofQuestion: questions.length,
+          prevRandomNumber: [],
+        },
+        () => {
+          this.showOptions();
+          this.handleDisableButtom();
+        }
+      );
     }
   };
 
@@ -71,13 +90,13 @@ class Test extends Component {
       event.target.innerHTML.toLowerCase() === this.state.answer.toLowerCase()
     ) {
       setTimeout(() => {
-        document.getElementById("correct-sound").play();
+        this.correctSound.current.play();
       }, 500);
 
       this.correctAnswer();
     } else {
       setTimeout(() => {
-        document.getElementById("wrong-sound").play();
+        this.wrongSound.current.play();
       }, 500);
 
       this.wrongAnswer();
@@ -101,7 +120,7 @@ class Test extends Component {
     this.playButtonSound();
   };
   playButtonSound = () => {
-    document.getElementById("button-sound").play();
+    this.buttonSound.current.play();
   };
 
   handleNextButtonClick = () => {
@@ -162,12 +181,16 @@ class Test extends Component {
         numberOfAnsweredQuestion: prevState.numberOfAnsweredQuestion + 1,
       }),
       () => {
-        this.displayQuestions(
-          this.state.questions,
-          this.state.currentQuestion,
-          this.state.previousQuestion,
-          this.state.nextQuestion
-        );
+        if (this.state.nextQuestion === undefined) {
+          this.endgame();
+        } else {
+          this.displayQuestions(
+            this.state.questions,
+            this.state.currentQuestion,
+            this.state.nextQuestion,
+            this.state.previousQuestion
+          );
+        }
       }
     );
   };
@@ -178,6 +201,7 @@ class Test extends Component {
       classes: "toast-invalid",
       displayLength: 1500,
     });
+
     this.setState(
       (prevState) => ({
         wrongAnswers: prevState.wrongAnswer + 1,
@@ -185,18 +209,197 @@ class Test extends Component {
         numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1,
       }),
       () => {
-        this.displayQuestions(
-          this.state.questions,
-          this.state.currentQuestion,
-          this.state.nextQuestion,
-          this.state.previousQuestion
-        );
+        if (this.state.nextQuestion === undefined) {
+          this.endgame();
+        } else {
+          this.displayQuestions(
+            this.state.questions,
+            this.state.currentQuestion,
+            this.state.nextQuestion,
+            this.state.previousQuestion
+          );
+        }
       }
     );
   };
+
+  showOptions = () => {
+    const options = Array.from(document.querySelectorAll(".option"));
+    options.forEach((option) => (option.style.visibility = "visible"));
+    this.setState({
+      usedFiftyfifty: false,
+    });
+  };
+  handlehints = () => {
+    if (this.state.hints > 0) {
+      const options = Array.from(document.querySelectorAll(".option"));
+      let indexOfAnswer;
+      options.forEach((option, index) => {
+        if (
+          option.innerHTML.toLowerCase() === this.state.answer.toLowerCase()
+        ) {
+          indexOfAnswer = index;
+        }
+      });
+
+      while (true) {
+        const randomNumber = Math.round(Math.random() * 3);
+        if (
+          randomNumber !== indexOfAnswer &&
+          !this.state.prevRandomNumber.includes(randomNumber)
+        ) {
+          options.forEach((option, index) => {
+            if (index === randomNumber) {
+              option.style.visibility = "hidden";
+              this.setState((prevState) => ({
+                hints: prevState.hints - 1,
+                prevRandomNumber:
+                  prevState.prevRandomNumber.concat(randomNumber),
+              }));
+            }
+          });
+          break;
+        }
+        if (this.state.prevRandomNumber.length >= 3) break;
+      }
+    }
+  };
+
+  handFiftyFifty = () => {
+    if (this.state.fiftyFifty > 0 && this.state.usedFiftyfifty === false) {
+      const options = document.querySelectorAll(".option");
+      const randomNumbers = [];
+      let indexOfAnswer;
+      options.forEach((option, index) => {
+        if (
+          option.innerHTML.toLowerCase() === this.state.answer.toLowerCase()
+        ) {
+          indexOfAnswer = index;
+        }
+      });
+
+      let count = 0;
+      do {
+        const randomNumber = Math.round(Math.random() * 3);
+        if (randomNumber !== indexOfAnswer) {
+          if (
+            randomNumbers.length < 2 &&
+            !randomNumbers.includes(randomNumber) &&
+            !randomNumbers.includes(indexOfAnswer)
+          ) {
+            randomNumbers.push(randomNumber);
+            count++;
+          } else {
+            while (true) {
+              const newRandomNumber = Math.round(Math.random() * 3);
+              if (
+                !randomNumbers.includes(newRandomNumber) &&
+                !randomNumbers.includes(indexOfAnswer)
+              ) {
+                randomNumber.push(newRandomNumber);
+                count++;
+                break;
+              }
+            }
+          }
+        }
+      } while (count < 2);
+      options.forEach((option, index) => {
+        if (randomNumbers.includes(index)) {
+          option.style.visibility = "hidden";
+        }
+      });
+      this.setState((prevState) => ({
+        fiftyFifty: prevState.fiftyFifty - 1,
+        usedFiftyfifty: true,
+      }));
+    }
+  };
+  startTimer = () => {
+    const counDownTime = Date.now() + 180000;
+    this.interval = setInterval(() => {
+      const now = new Date();
+      const distance = counDownTime - now;
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        clearInterval(this.interval);
+        this.setState(
+          {
+            time: {
+              minutes: 0,
+              seconds: 0,
+            },
+          },
+          () => {
+            this.endgame();
+          }
+        );
+      } else {
+        this.setState({
+          time: {
+            minutes,
+            seconds,
+          },
+        });
+      }
+    }, 1000);
+  };
+
+  handleDisableButtom = () => {
+    if (
+      this.state.previousQuestion === undefined ||
+      this.state.currentQuestionIndex === 0
+    ) {
+      this.setState({
+        prevtButtomDisable: true,
+      });
+    } else {
+      this.setState({
+        prevButtomDisable: false,
+      });
+    }
+    if (
+      this.state.nextQuestion === undefined ||
+      this.state.currentQuestionIndex + 1 === this.state.numberofQuestion
+    ) {
+      this.setState({
+        nextButtomDisable: true,
+      });
+    } else {
+      this.setState({
+        nextButtomDisable: false,
+      });
+    }
+  };
+
+  endgame = () => {
+    alert("Quiz has ended");
+    const { state } = this;
+    const playerstats = {
+      score: state.score,
+      numberofQuestion: state.numberofQuestion,
+      numberOfAnsweredQuestions: state.numberOfAnsweredQuestion,
+      correctAnswers: state.correctAnswers,
+      wrongAnswers: state.wrongAnswers,
+      fiftyFiftyUsed: 2 - state.fiftyFifty,
+      hintsUsed: 5 - state.hints,
+    };
+    console.log(playerstats);
+    setTimeout(() => {
+      this.props.history.push("/");
+    }, 1000);
+  };
   render() {
-    const { currentQuestion, currentQuestionIndex, numberofQuestion } =
-      this.state;
+    const {
+      currentQuestion,
+      currentQuestionIndex,
+      numberofQuestion,
+      hints,
+      fiftyFifty,
+      time,
+    } = this.state;
 
     return (
       <>
@@ -204,21 +407,27 @@ class Test extends Component {
           <title>Quiz Page</title>
         </Helmet>
         <Fragment>
-          <audio id="correct-sound" src={CorrectNotification}></audio>
-          <audio id="wrong-sound" src={wrongNotification}></audio>
-          <audio id="button-sound" src={buttonNotification}></audio>
+          <audio ref={this.correctSound} src={CorrectNotification}></audio>
+          <audio ref={this.wrongSound} src={wrongNotification}></audio>
+          <audio ref={this.buttonSound} src={buttonNotification}></audio>
         </Fragment>
         <div className="questions">
           <h2>Realcash Game</h2>
           <div className="lifeline-container">
             <p>
-              <span className="mdi mdi-set-center mdi-24px lifeline-icon">
-                <span className="lifeline"></span>
+              <span
+                className="mdi mdi-set-center mdi-24px lifeline-icon"
+                onClick={this.handFiftyFifty}
+              >
+                <span className="lifeline">{fiftyFifty}</span>
               </span>
             </p>
             <p>
-              <span className="mdi mdi-lightbulb-on mdi-24px lifeline-icon">
-                5
+              <span
+                className="mdi mdi-lightbulb-on mdi-24px lifeline-icon"
+                onClick={this.handlehints}
+              >
+                <span className="lifeline"> {hints}</span>
               </span>{" "}
             </p>
           </div>
@@ -231,7 +440,9 @@ class Test extends Component {
             </p>
             <p>
               {" "}
-              <span className="lifeline"> 2:15</span>
+              <span className="lifeline">
+                {time.minutes} : {time.seconds}{" "}
+              </span>
               <FcClock className="lifeline" />
             </p>
           </div>
@@ -253,11 +464,23 @@ class Test extends Component {
             </p>
           </div>
           <div className="button-container">
-            <button id="previous-button" onClick={this.handleButtonClick}>
+            <button
+              className={classnames("", {
+                disable: this.state.prevButtomDisable,
+              })}
+              id="previous-button"
+              onClick={this.handleButtonClick}
+            >
               {" "}
               Previous
             </button>
-            <button id="next-button" onClick={this.handleButtonClick}>
+            <button
+              className={classnames("", {
+                disable: this.state.nextButtomDisable,
+              })}
+              id="next-button"
+              onClick={this.handleButtonClick}
+            >
               Next{" "}
             </button>
             <button id="quit-button" onClick={this.handleButtonClick}>
