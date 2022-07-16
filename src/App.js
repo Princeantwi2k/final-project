@@ -18,6 +18,7 @@ import Buycrypto from './Container/Body/BuyCrypto';
 import Realquiz from './Container/RealcashQuiz/Realquiz';
 import QuizIntruction from './Container/RealcashQuiz/QuizIntruction';
 import Test from './Container/RealcashQuiz/Test';
+import QuizSummry from './Container/RealcashQuiz/QuizSummry';
 
 
 
@@ -40,6 +41,7 @@ function App() {
       <Route path="/crypto" exact element={<ProtectedRoute><Cryptocurrencies /> </ProtectedRoute>} />
       <Route path="/quiz" exact element={<ProtectedRoute><Realquiz /></ProtectedRoute>} />
       <Route path="/play/instructions" exact element={<ProtectedRoute><QuizIntruction /></ProtectedRoute>} />
+      <Route path="/play/quizsummary" exact element={<ProtectedRoute><QuizSummry/></ProtectedRoute>} />
       <Route path="/play/quiz" exact element={<ProtectedRoute><Test /></ProtectedRoute>} />
       <Route path="/buy" exact element={<ProtectedRoute><Buycrypto/></ProtectedRoute>} />
       <Route path="/exchange" exact element={<ProtectedRoute><Exchanges/> </ProtectedRoute>} />
